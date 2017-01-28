@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
 	//pictures property array to use
 	var pictures = [String]()
@@ -21,7 +21,6 @@ class ViewController: UIViewController {
 
 		//we then create a constant called Path that shows us where our files are in our app bundle
 		let path = Bundle.main.resourcePath!
-
 		let items = try! fm.contentsOfDirectory(atPath: path)
 
 		//then we loop
