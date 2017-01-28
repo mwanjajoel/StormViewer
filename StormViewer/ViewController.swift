@@ -10,9 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	//pictures property array to use
+	var pictures = [String]()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+
+		//we are gonna use file manager, by first instantiating it
+		let fm = FileManager.default
+
+		//we then create a constant called Path that shows us where our files are in our app bundle
+		let path = Bundle.main.resourcePath!
+
+		let items = try! fm.contentsOfDirectory(atPath: path)
+
+		//then we loop
+		for item in items {
+
+			if item.hasPrefix("nssl") {
+
+				//load the pictures here! yay!
+				pictures.append(item)
+			}
+		}
+
+		//lets see if the pictures are actually found 
+		print(pictures)
+
 	}
 
 	override func didReceiveMemoryWarning() {
